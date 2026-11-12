@@ -1,0 +1,26 @@
+# CACA PACK Admin Dashboard (GitHub Pages + Supabase)
+
+## Included files
+- `index.html`, `styles.css`: homepage, with the existing design and static sample cards as fallback.
+- `catalog.js`: loads products from Supabase on the public homepage.
+- `admin.html`, `admin.css`, `admin.js`: secure sign-in and product management interface.
+- `supabase-config.js`: your Supabase project URL and anon/public key.
+- `supabase-setup.sql`: database, access policies, and public image bucket setup.
+
+## Setup steps
+1. Create a Supabase project at https://supabase.com/ and wait until it is ready.
+2. In Supabase, open SQL Editor, paste all of `supabase-setup.sql`, and run it.
+3. In Supabase Dashboard > Project Settings > API (or API Keys), copy the Project URL and anon/public key. Put them in `supabase-config.js`. Never use the `service_role` or secret key in browser code.
+4. In Supabase Authentication > Providers, make sure Email sign-in is enabled. Disable public sign-ups (Authentication > Settings / User Signups).
+5. In Authentication > Users, add/invite your own admin user and set a strong password. Open that user and copy its UUID / User ID.
+6. In SQL Editor, run this one-time command after replacing the UUID with the copied User ID: `insert into public.admin_users (user_id) values ('PASTE-USER-UUID-HERE');` This allowlists only your account as a catalog administrator. Do not create a public registration page.
+7. Copy all package files into the root of your GitHub Pages website repository. Replace `index.html` and `styles.css` with the included versions. Keep your existing other pages and `script.js`. Add the new JS, CSS, SQL and `admin.html` files.
+8. Commit and push to GitHub. Open `https://YOUR-USERNAME.github.io/YOUR-REPOSITORY/admin.html` and sign in.
+9. Add a product. The public homepage reads the same Supabase table and updates automatically.
+
+## Important security notes
+- The browser anon/public key is designed to be public; the Row Level Security policies protect the database.
+- Never place a Supabase service_role/secret key in HTML or JavaScript.
+- Only the Supabase user UUID added to `public.admin_users` can manage products. Keep public sign-ups disabled and do not share admin credentials.
+- This package does not migrate the six static sample products into the database. The homepage keeps them as a fallback until you add the first database products. Then it displays the Supabase catalog instead. Add your six real products in Admin to populate the live catalog.
+- Supabase free-tier limits and project availability may change.
