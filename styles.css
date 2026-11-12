@@ -223,3 +223,10 @@ footer { margin-top: 10px; padding: 55px 0 24px; background: #282019; color: #ff
 .dialog-actions{display:flex;justify-content:flex-end;align-items:center;gap:10px;margin-top:8px}
 .cancel-button{min-height:42px;padding:0 17px;border:1px solid #e8ddcc;border-radius:999px;background:#fff;color:var(--ink);font:inherit;font-size:11px;font-weight:800;cursor:pointer}
 @media(max-width:720px){.product-actions{align-items:flex-start;flex-direction:column}.product-more{justify-content:flex-start}.product-form{padding:21px}}
+
+/* Language selector */
+.language-switch{display:flex;align-items:center;gap:5px;margin-left:auto;margin-right:12px;flex-shrink:0}
+.language-switch button{border:1px solid rgba(255,255,255,.2);background:transparent;color:inherit;border-radius:999px;padding:8px 10px;font:inherit;font-size:11px;font-weight:600;cursor:pointer;transition:.2s}
+.site-header .language-switch button,.nav .language-switch button{border-color:#e8e0d6;color:var(--ink)}
+.language-switch button:hover,.language-switch button.active{background:var(--orange);border-color:var(--orange);color:#fff}
+@media(max-width:720px){.language-switch{position:absolute;right:66px;top:17px;margin:0;width:auto!important;order:initial;z-index:5}}

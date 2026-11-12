@@ -33,3 +33,8 @@ Then visit http://localhost:8000.
 - Replace remote demo photos with your own product/factory photos where available.
 - The contact form currently opens the visitor's email application using `mailto:`. For direct form submissions without an email app, connect a form backend such as Formspree or a custom API.
 - This is a static front-end website; user accounts, database, admin dashboard, and order management require a backend service.
+
+## Website language
+- Public website pages include a language selector in the header: Indonesian (🇮🇩 ID) and British English (🇬🇧 EN).
+- The selected language is saved in the visitor's browser using local storage and is retained when navigating between public pages.
+- Translation strings and language behaviour are maintained in `language.js`; selector styling is in `styles.css`.
