@@ -188,7 +188,28 @@ footer { margin-top: 10px; padding: 55px 0 24px; background: #282019; color: #ff
   .product-photo { height: 125px; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
+.social-links {
+  display: flex;
+  gap: 24px;
+}
 
+.social-links a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.social-links i {
+  font-size: 20px;
+}
+
+img {
+  width: 50px;
+  height: auto;
+  object-fit: contain;
+}
 
 /* ===== PRODUCT ADD / UPLOAD FEATURE ===== */
 .product-actions{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:20px}
